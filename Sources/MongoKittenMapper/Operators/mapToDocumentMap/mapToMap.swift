@@ -17,15 +17,19 @@ public func >>><T: Primitive>(left: T, right: Map) {
 }
 
 public func >>><T: DocumentMappable>(left: T, right: Map) {
-  map(value: left, to: right)
+  map(value: left.dictionary, to: right)
 }
 
 public func >>><T: DocumentMappable>(left: T?, right: Map) {
-  map(value: left, to: right)
+  map(value: left?.dictionary, to: right)
 }
 
 public func >>><T: DocumentMappable>(left: [T], right: Map) {
-  map(value: left, to: right)
+  map(value: left.dictionaries, to: right)
+}
+
+public func >>><T: DocumentMappable>(left: [T]?, right: Map) {
+  map(value: left?.dictionaries, to: right)
 }
 
 public func map<T: Primitive>(value: T?, to map: Map) {

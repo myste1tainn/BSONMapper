@@ -42,7 +42,7 @@ public func mapDictionaries<T: Primitive>(value: T, to map: Map) {
 }
 
 public func mapDictionaries<T: DocumentMappable>(value: T?, to map: Map) {
-  map.currentValue = value.dictionary
+  map.currentValue = value?.dictionary
   set(value: map.currentValue, to: map, on: .dictionary)
 }
 

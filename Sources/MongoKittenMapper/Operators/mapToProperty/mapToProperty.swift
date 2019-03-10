@@ -24,8 +24,25 @@ extension Map {
     left?.map(with: right)
   }
   
+  public static func --><T: DocumentMappable>(left: inout T?, right: Map) {
+    let map = Map(to: right.direction, document: right.currentValue as! Document)
+    left = T(map: map)
+    left?.mapping(map: map)
+  }
+  
+  public static func --><T: DocumentMappable>(left: inout T, right: Map) {
+    let map = Map(to: right.direction, document: right.currentValue as! Document)
+    guard let model = T(map: map) else { return }
+    left = model
+    left.mapping(map: map)
+  }
+  
   public static func --><T: DocumentMappable>(left: inout [T], right: Map) {
-    left.map(with: right)
+    left = T.array(map: right)
+  }
+  
+  public static func --><T: DocumentMappable>(left: inout [T]?, right: Map) {
+    left = T.array(map: right)
   }
 }
 
