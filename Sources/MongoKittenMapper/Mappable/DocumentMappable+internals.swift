@@ -7,9 +7,10 @@ import BSON
 
 extension DocumentMappable {
   private func makeMap(direction: Map.MapTo) -> Map {
+    let document = Document()
     let map = Map(to: direction, document: document)
-    mapping(map: map)
-    idMapping(document: &map.document)
+    var this = self
+    this.mapping(map: map)
     return map
   }
   
@@ -30,8 +31,8 @@ extension DocumentMappable {
         return nil
       }
       let newMap = Map(to: .property, document: doc)
-      let element = self.init(map: newMap)
-      element.mapping(map: newMap)
+      var element = self.init(map: newMap)
+      element?.mapping(map: newMap)
       return element
     }
   }

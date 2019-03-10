@@ -8,14 +8,10 @@ import MongoKitten
 
 extension Array where Element: DocumentMappable {
   var documents: [Document] {
-    return reduce([Document]()) {
-      $0 + [$1.makeDocument()]
-    }
+    return reduce(into: [Document]()) { $0.append($1.makeDocument()) }
   }
   
   var dictionaries: [[String: Primitive]] {
-    return reduce([[String: Primitive]]()) {
-      $0 + [$1.makeDictionary()]
-    }
+    return reduce(into: [[String: Primitive]]()) { $0.append($1.makeDictionary()) }
   }
 }

@@ -5,10 +5,8 @@
 import MongoKitten
 
 public protocol DocumentMappable {
-  var document: Document { get set }
-  init(map: Map)
-  func mapping(map: Map)
-  func idMapping(document: inout Document)
+  init?(map: Map)
+  mutating func mapping(map: Map)
 }
 
 

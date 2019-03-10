@@ -4,6 +4,7 @@ import XCTest
 public func allTests() -> [XCTestCaseEntry] {
     return [
         testCase(MongoKittenMapperTests.allTests),
+        testCase(MapToPropertySpec.allTests),
     ]
 }
 #endif
