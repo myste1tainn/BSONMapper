@@ -3,7 +3,8 @@
 //
 
 import Foundation
-import MongoKittenMapper
+import BSON
+import BSONMapper
 
 public struct Person: DocumentMappable {
   public var name: String?

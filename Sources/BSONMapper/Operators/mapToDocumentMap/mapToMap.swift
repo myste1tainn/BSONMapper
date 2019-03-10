@@ -16,20 +16,30 @@ public func >>><T: Primitive>(left: T, right: Map) {
   map(value: left, to: right)
 }
 
+public func >>><T: Primitive>(left: [T]?, right: Map) {
+  map(value: left, to: right)
+}
+
+public func >>><T: Primitive>(left: [T], right: Map) {
+  map(value: left, to: right)
+}
+
 public func >>><T: DocumentMappable>(left: T, right: Map) {
-  map(value: left.dictionary, to: right)
+  map(value: left, to: right)
 }
 
 public func >>><T: DocumentMappable>(left: T?, right: Map) {
-  map(value: left?.dictionary, to: right)
+  guard let left = left else { return }
+  map(value: left, to: right)
 }
 
 public func >>><T: DocumentMappable>(left: [T], right: Map) {
-  map(value: left.dictionaries, to: right)
+  map(value: left, to: right)
 }
 
 public func >>><T: DocumentMappable>(left: [T]?, right: Map) {
-  map(value: left?.dictionaries, to: right)
+  guard let left = left else { return }
+  map(value: left, to: right)
 }
 
 public func map<T: Primitive>(value: T?, to map: Map) {
@@ -37,8 +47,28 @@ public func map<T: Primitive>(value: T?, to map: Map) {
   set(value: map.currentValue, to: map, on: .document)
 }
 
-public func map<T: DocumentMappable>(value: [T], to map: Map) {
+public func map<T: Primitive>(value: T, to map: Map) {
   map.currentValue = value
+  set(value: map.currentValue, to: map, on: .document)
+}
+
+public func map<T: Primitive>(value: [T]?, to map: Map) {
+  map.currentValue = value as? Primitive
+  set(value: map.currentValue, to: map, on: .document)
+}
+
+public func map<T: Primitive>(value: [T], to map: Map) {
+  map.currentValue = value as? Primitive
+  set(value: map.currentValue, to: map, on: .document)
+}
+
+public func map<T: DocumentMappable>(value: T, to map: Map) {
+  map.currentValue = value.dictionary as? Primitive
+  set(value: map.currentValue, to: map, on: .document)
+}
+
+public func map<T: DocumentMappable>(value: [T], to map: Map) {
+  map.currentValue = value.dictionaries as? Primitive
   set(value: map.currentValue, to: map, on: .document)
 }
 

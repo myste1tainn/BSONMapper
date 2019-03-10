@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import MongoKitten
-
+//import MongoKitten
+//
 //extension MongoEntity where Self: Model {
 //  static func all() -> TypedCollectionSlice<Self> {
 //    let instance = Self.init()

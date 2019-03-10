@@ -4,7 +4,6 @@
 
 import Foundation
 import BSON
-import MongoKitten
 
 extension Array where Element: DocumentMappable {
   var documents: [Document] {

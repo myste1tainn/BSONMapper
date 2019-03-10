@@ -15,6 +15,14 @@ public func ->><T>(left: T, right: Map) where T: Primitive {
   mapDictionaries(value: left, to: right)
 }
 
+public func ->><T>(left: [T]?, right: Map) where T: Primitive {
+  mapDictionaries(value: left, to: right)
+}
+
+public func ->><T>(left: [T], right: Map) where T: Primitive {
+  mapDictionaries(value: left, to: right)
+}
+
 public func ->><T>(left: T?, right: Map) where T: DocumentMappable {
   mapDictionaries(value: left, to: right)
 }
@@ -28,6 +36,7 @@ public func ->><T>(left: [T], right: Map) where T: DocumentMappable {
 }
 
 public func ->><T>(left: [T]?, right: Map) where T: DocumentMappable {
+  guard let left = left else { return }
   mapDictionaries(value: left, to: right)
 }
 
@@ -41,17 +50,33 @@ public func mapDictionaries<T: Primitive>(value: T, to map: Map) {
   set(value: map.currentValue, to: map, on: .dictionary)
 }
 
+public func mapDictionaries<T: Primitive>(value: [T]?, to map: Map) {
+  map.currentValue = value as? Primitive
+  set(value: map.currentValue, to: map, on: .dictionary)
+}
+
+public func mapDictionaries<T: Primitive>(value: [T], to map: Map) {
+  map.currentValue = value as? Primitive
+  set(value: map.currentValue, to: map, on: .dictionary)
+}
+
 public func mapDictionaries<T: DocumentMappable>(value: T?, to map: Map) {
-  map.currentValue = value?.dictionary
+  map.currentValue = value?.dictionary as? Primitive
   set(value: map.currentValue, to: map, on: .dictionary)
 }
 
 public func mapDictionaries<T: DocumentMappable>(value: T, to map: Map) {
-  map.currentValue = value.dictionary
+  map.currentValue = value.dictionary as? Primitive
+  set(value: map.currentValue, to: map, on: .dictionary)
+}
+
+public func mapDictionaries<T: DocumentMappable>(value: [T]?, to map: Map) {
+  map.currentValue = value?.dictionaries as? Primitive
   set(value: map.currentValue, to: map, on: .dictionary)
 }
 
 public func mapDictionaries<T: DocumentMappable>(value: [T], to map: Map) {
-  map.currentValue = value.dictionaries
+  map.currentValue = value.dictionaries as? Primitive
   set(value: map.currentValue, to: map, on: .dictionary)
 }
+

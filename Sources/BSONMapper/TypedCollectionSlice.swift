@@ -2,8 +2,8 @@
 // Created by Arnon Keereena on 9/12/2017 AD.
 //
 
-import MongoKitten
-
+//import MongoKitten
+//
 //public class TypedCollectionSlice<MappedType> where MappedType: Model {
 //  public var rawCollection: CollectionSlice<Document>!
 //

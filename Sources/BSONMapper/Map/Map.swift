@@ -2,7 +2,7 @@
 // Created by Arnon Keereena on 7/12/2017 AD.
 //
 
-import MongoKitten
+import BSON
 
 public class Map {
   public var document: Document

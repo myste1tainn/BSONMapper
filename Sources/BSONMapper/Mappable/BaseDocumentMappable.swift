@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import MongoKitten
+import BSON
 
 open class BaseDocumentMappable: DocumentMappable {
   public var document: Document

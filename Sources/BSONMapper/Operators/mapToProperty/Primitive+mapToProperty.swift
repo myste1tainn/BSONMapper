@@ -7,7 +7,7 @@ import BSON
 
 extension Array where Element: Primitive {
   mutating func map(with map: Map) {
-    (map.currentValue as? Document)?.arrayRepresentation.forEach {
+    (map.currentValue as? Document)?.values.forEach {
       if let doc = $0 as? Document {
         var item: Element? = nil
         let newMap = Map(to: .property, document: doc)

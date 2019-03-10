@@ -2,8 +2,8 @@
 // Created by Arnon Keereena on 2/12/2017 AD.
 //
 
-import MongoKitten
-
+//import MongoKitten
+//
 /// Base class for all mongodb entity
 //public protocol MongoEntity {
 //  var db: Database { get }

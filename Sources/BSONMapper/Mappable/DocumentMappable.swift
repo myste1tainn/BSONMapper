@@ -2,7 +2,7 @@
 // Created by Arnon Keereena on 6/12/2017 AD.
 //
 
-import MongoKitten
+import Foundation
 
 public protocol DocumentMappable {
   init?(map: Map)

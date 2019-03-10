@@ -4,8 +4,8 @@
 
 import Foundation
 import XCTest
-import MongoKitten
-@testable import MongoKittenMapper
+import BSON
+@testable import BSONMapper
 
 final class MapToPropertySpec: XCTestCase {
   func testMapToPropertyPrimitiveOptionalAndPrimitive() {

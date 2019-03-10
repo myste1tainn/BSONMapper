@@ -26,7 +26,7 @@ extension DocumentMappable {
     guard let document = map.currentValue as? Document else {
       return []
     }
-    return document.arrayRepresentation.compactMap {
+    return document.values.compactMap {
       guard let doc = $0 as? Document else {
         return nil
       }

@@ -3,8 +3,8 @@
 //
 
 import Foundation
-import MongoKitten
-import MongoKittenMapper
+import BSON
+import BSONMapper
 
 public struct PersonWithNestedProps: DocumentMappable {
   public var name: String?
