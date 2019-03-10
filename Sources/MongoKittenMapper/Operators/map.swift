@@ -39,6 +39,22 @@ public func <-<T: Primitive>(left: inout [T]?, right: Map) {
   }
 }
 
+public func <-<T: DocumentMappable>(left: inout T?, right: Map) {
+  switch right.direction {
+  case .document: left >>> right
+  case .dictionary: left ->> right
+  case .property: left --> right
+  }
+}
+
+public func <-<T: DocumentMappable>(left: inout T, right: Map) {
+  switch right.direction {
+  case .document: left >>> right
+  case .dictionary: left ->> right
+  case .property: left --> right
+  }
+}
+
 public func <-<T: DocumentMappable>(left: inout [T]?, right: Map) {
   switch right.direction {
   case .document: left >>> right

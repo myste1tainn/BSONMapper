@@ -15,3 +15,8 @@ extension Array where Element: DocumentMappable {
     return reduce(into: [[String: Primitive]]()) { $0.append($1.makeDictionary()) }
   }
 }
+
+extension DocumentMappable {
+  var document: Document { return makeDocument() }
+  var dictionary: [String: Primitive] { return makeDictionary() }
+}

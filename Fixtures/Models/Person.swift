@@ -3,12 +3,11 @@
 //
 
 import Foundation
-import MongoKitten
 import MongoKittenMapper
 
 public struct Person: DocumentMappable {
   public var name: String?
-  public var lastname: String?
+  public var lastname: String = ""
   
   public init?(map: Map) {
   }

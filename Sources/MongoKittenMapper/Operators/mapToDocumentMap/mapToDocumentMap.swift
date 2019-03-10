@@ -12,6 +12,18 @@ public func >>><T: Primitive>(left: T?, right: Map) {
   map(value: left, to: right)
 }
 
+public func >>><T: Primitive>(left: T, right: Map) {
+  map(value: left, to: right)
+}
+
+public func >>><T: DocumentMappable>(left: T, right: Map) {
+  map(value: left, to: right)
+}
+
+public func >>><T: DocumentMappable>(left: T?, right: Map) {
+  map(value: left, to: right)
+}
+
 public func >>><T: DocumentMappable>(left: [T], right: Map) {
   map(value: left, to: right)
 }

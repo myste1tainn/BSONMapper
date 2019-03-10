@@ -9,11 +9,11 @@ infix operator -->: AdditionPrecedence
 
 extension Map {
   public static func --><T: Primitive>(left: inout T?, right: Map) {
-    left?.map(with: right)
+    left = right.currentValue as? T
   }
   
   public static func --><T: Primitive>(left: inout T, right: Map) {
-    left.map(with: right)
+    left = right.currentValue as! T
   }
   
   public static func --><T: Primitive>(left: inout [T], right: Map) {
