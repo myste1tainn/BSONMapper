@@ -24,17 +24,16 @@ final class MapToPropertySpec: XCTestCase {
     var document = Document()
     document["name"] = "Arnon"
     document["last-name"] = "Keereena"
-    document["contact"] = [
-      "telephone": "0833859034",
-      "email": "a.keereena@gmail.com",
-      "address": [
-        "number": 1
-      ]
-    ]
+    let doc = Document(dictionaryLiteral:
+      ("telephone", "0833859034"),
+      ("email", "a.keereena@gmail.com"),
+      ("address", ["number": 1])
+    )
+    document["contact"] = doc
     let map = Map(to: .property, document: document)
     var model = PersonWithNestedProps(map: map)
     model?.mapping(map: map)
-  
+    
     XCTAssertEqual(model?.name, "Arnon")
     XCTAssertEqual(model?.lastname, "Keereena")
     XCTAssertEqual(model?.contact?.telephone, "0833859034")
@@ -47,4 +46,3 @@ final class MapToPropertySpec: XCTestCase {
     ("testMapToPropertyNestedMappable", testMapToPropertyNestedMappable)
   ]
 }
-

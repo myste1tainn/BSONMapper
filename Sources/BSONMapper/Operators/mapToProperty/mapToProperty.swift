@@ -25,7 +25,11 @@ extension Map {
   }
   
   public static func --><T: DocumentMappable>(left: inout T?, right: Map) {
-    let map = Map(to: right.direction, document: right.currentValue as! Document)
+    guard let value = right.currentValue,
+      let document = value as? Document else {
+        return
+    }
+    let map = Map(to: right.direction, document: document)
     left = T(map: map)
     left?.mapping(map: map)
   }
