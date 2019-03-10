@@ -4,15 +4,15 @@
 
 import MongoKitten
 
-public class DocumentMap {
+public class Map {
   public var document: Document
   public var dictionary: [String: Primitive]
   public var currentKey: String?
   public var currentValue: Primitive?
   public var direction = MapTo.document
   
-  public static var empty: DocumentMap {
-    return DocumentMap(to: .property, document: Document())
+  public static var empty: Map {
+    return Map(to: .property, document: Document())
   }
   
   public init(to: MapTo, document: Document) {
@@ -28,7 +28,7 @@ public class DocumentMap {
     case property
   }
   
-  public subscript(key: String) -> DocumentMap {
+  public subscript(key: String) -> Map {
     currentKey = key
     currentValue = document[key]
     return self

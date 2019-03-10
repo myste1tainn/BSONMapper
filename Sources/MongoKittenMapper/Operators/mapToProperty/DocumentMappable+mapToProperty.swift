@@ -5,7 +5,7 @@
 import Foundation
 
 extension Array where Element: DocumentMappable {
-  public mutating func map(with map: DocumentMap) {
+  public mutating func map(with map: Map) {
     self = Element.array(map: map)
   }
 }

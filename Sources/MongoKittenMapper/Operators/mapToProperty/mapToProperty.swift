@@ -7,24 +7,24 @@ import BSON
 
 infix operator -->: AdditionPrecedence
 
-extension DocumentMap {
-  public static func --><T: Primitive>(left: inout T?, right: DocumentMap) {
+extension Map {
+  public static func --><T: Primitive>(left: inout T?, right: Map) {
     left?.map(with: right)
   }
   
-  public static func --><T: Primitive>(left: inout T, right: DocumentMap) {
+  public static func --><T: Primitive>(left: inout T, right: Map) {
     left.map(with: right)
   }
   
-  public static func --><T: Primitive>(left: inout [T], right: DocumentMap) {
+  public static func --><T: Primitive>(left: inout [T], right: Map) {
     left.map(with: right)
   }
   
-  public static func --><T: Primitive>(left: inout [T]?, right: DocumentMap) {
+  public static func --><T: Primitive>(left: inout [T]?, right: Map) {
     left?.map(with: right)
   }
   
-  public static func --><T: DocumentMappable>(left: inout [T], right: DocumentMap) {
+  public static func --><T: DocumentMappable>(left: inout [T], right: Map) {
     left.map(with: right)
   }
 }

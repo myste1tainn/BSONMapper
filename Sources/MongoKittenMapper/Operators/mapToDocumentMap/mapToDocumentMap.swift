@@ -8,20 +8,20 @@ import BSON
 // Algebraic operator for the function
 infix operator >>>: AdditionPrecedence
 
-public func >>><T: Primitive>(left: T?, right: DocumentMap) {
+public func >>><T: Primitive>(left: T?, right: Map) {
   map(value: left, to: right)
 }
 
-public func >>><T: DocumentMappable>(left: [T], right: DocumentMap) {
+public func >>><T: DocumentMappable>(left: [T], right: Map) {
   map(value: left, to: right)
 }
 
-public func map<T: Primitive>(value: T?, to map: DocumentMap) {
+public func map<T: Primitive>(value: T?, to map: Map) {
   map.currentValue = value
   set(value: map.currentValue, to: map, on: .document)
 }
 
-public func map<T: DocumentMappable>(value: [T], to map: DocumentMap) {
+public func map<T: DocumentMappable>(value: [T], to map: Map) {
   map.currentValue = value
   set(value: map.currentValue, to: map, on: .document)
 }
@@ -31,7 +31,7 @@ enum ValueSetProperty {
   case dictionary
 }
 
-func set(value: Primitive?, to map: DocumentMap, on vsp: ValueSetProperty) {
+func set(value: Primitive?, to map: Map, on vsp: ValueSetProperty) {
   guard let key = map.currentKey,
         let value = map.currentValue else {
     return

@@ -7,7 +7,7 @@ import BSON
 
 infix operator <-: AdditionPrecedence
 
-public func <-<T: Primitive>(left: inout T, right: DocumentMap) {
+public func <-<T: Primitive>(left: inout T, right: Map) {
   switch right.direction {
   case .document: left >>> right
   case .dictionary: left ->> right
@@ -15,7 +15,7 @@ public func <-<T: Primitive>(left: inout T, right: DocumentMap) {
   }
 }
 
-public func <-<T: Primitive>(left: inout T?, right: DocumentMap) {
+public func <-<T: Primitive>(left: inout T?, right: Map) {
   switch right.direction {
   case .document: left >>> right
   case .dictionary: left ->> right
@@ -23,7 +23,7 @@ public func <-<T: Primitive>(left: inout T?, right: DocumentMap) {
   }
 }
 
-public func <-<T: Primitive>(left: inout [T], right: DocumentMap) {
+public func <-<T: Primitive>(left: inout [T], right: Map) {
   switch right.direction {
   case .document: left >>> right
   case .dictionary: left ->> right
@@ -31,7 +31,7 @@ public func <-<T: Primitive>(left: inout [T], right: DocumentMap) {
   }
 }
 
-public func <-<T: Primitive>(left: inout [T]?, right: DocumentMap) {
+public func <-<T: Primitive>(left: inout [T]?, right: Map) {
   switch right.direction {
   case .document: left >>> right
   case .dictionary: left ->> right
@@ -39,7 +39,7 @@ public func <-<T: Primitive>(left: inout [T]?, right: DocumentMap) {
   }
 }
 
-public func <-<T: DocumentMappable>(left: inout [T]?, right: DocumentMap) {
+public func <-<T: DocumentMappable>(left: inout [T]?, right: Map) {
   switch right.direction {
   case .document: left >>> right
   case .dictionary: left ->> right

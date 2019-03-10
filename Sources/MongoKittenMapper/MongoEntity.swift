@@ -5,9 +5,9 @@
 import MongoKitten
 
 /// Base class for all mongodb entity
-public protocol MongoEntity {
-  var db: Database { get }
-  var collectionName: String { get }
-  var collection: MongoCollection { get set }
-  init()
-}
+//public protocol MongoEntity {
+//  var db: Database { get }
+//  var collectionName: String { get }
+//  var collection: MongoCollection { get set }
+//  init()
+//}
