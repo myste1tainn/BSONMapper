@@ -6,16 +6,16 @@ import Foundation
 import BSON
 
 extension Array where Element: DocumentMappable {
-  var documents: [Document] {
+  public var documents: [Document] {
     return reduce(into: [Document]()) { $0.append($1.makeDocument()) }
   }
   
-  var dictionaries: [[String: Primitive]] {
+  public var dictionaries: [[String: Primitive]] {
     return reduce(into: [[String: Primitive]]()) { $0.append($1.makeDictionary()) }
   }
 }
 
 extension DocumentMappable {
-  var document: Document { return makeDocument() }
-  var dictionary: [String: Primitive] { return makeDictionary() }
+  public var document: Document { return makeDocument() }
+  public var dictionary: [String: Primitive] { return makeDictionary() }
 }
